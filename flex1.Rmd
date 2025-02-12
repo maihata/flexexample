@@ -1,0 +1,51 @@
+---
+title: "Lab 6"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(usethis)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+library(gapminder)
+library(ggplot2)
+
+p1 <- ggplot(gapminder, aes(year, gdpPercap)) +
+geom_line(aes(group = country),
+color = "gray70") +
+scale_y_log10(labels = scales::dollar) +
+  labs(title = "GDP") 
+
+p1
+```
+
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+p2 <- ggplot(gapminder, aes(year, lifeExp, group = country)) +
+  geom_line(color = "blue", alpha = 0.5) +
+  labs(title = "Life Expectancy Trends", y = "Life Expectancy", x = "Year")
+
+p2
+```
+
+### Chart C
+
+```{r}
+
+```
+
